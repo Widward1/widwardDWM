@@ -14,5 +14,5 @@ Fedora
 
 installing:
 
-1) cd <directory>
-2) run sudo make install
+1) `cd into directory`
+2) `sudo make install`
