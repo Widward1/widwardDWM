@@ -2,9 +2,12 @@
 
 #include <X11/XF86keysym.h>
 
+#define ICONSIZE 18   /* icon size in pixels */
+#define ICONSPACING 5 /* space (pixels) between icon and title */
+
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const unsigned int gappx     = 7;        /* gaps between windows */
+static const unsigned int gappx     = 8;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -65,7 +68,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_lblue, "-sb", col_pink, "-sf", col_dblue, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *disccmd[]  = { "discord","--ignore-gpu-blocklist","--disable-features=UseOzonePlatform","--enable-features=VaapiVideoDecoder","--use-gl=desktop","--enable-gpu-rasterization","--enable-zero-copy", NULL };
-static const char *chromcmd[] = { "chromium", NULL};
+static const char *chromcmd[] = { "waterfox-g4", NULL};
 static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "0", "+5%",     NULL };
 static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-5%",     NULL };
 static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute",   "0", "toggle",  NULL }

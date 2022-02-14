@@ -1,0 +1,39 @@
+diff -r d0f0996386bf dwm.c
+--- a/dwm.c	Tue Sep 02 03:05:45 2008 -0700
++++ b/dwm.c	Tue Sep 02 14:09:36 2008 -0700
+@@ -268,23 +268,28 @@
+ }
+ 
+ void
+-arrange(void) {
+-	Client *c;
+-
+-	for(c = clients; c; c = c->next)
++showhide(Client *c) {
++	if (c) {
++		/* show clients starting from top of stack */
+ 		if(ISVISIBLE(c)) {
+ 			XMoveWindow(dpy, c->win, c->x, c->y);
+ 			if(!lt[sellt]->arrange || c->isfloating)
+ 				resize(c, c->x, c->y, c->w, c->h, True, True);
+ 		}
+-		else {
++		showhide(c->snext);
++		/* hide clients starting from bottom of stack */
++		if (!ISVISIBLE(c))
+ 			XMoveWindow(dpy, c->win, c->x + 2 * sw, c->y);
+-		}
++	}
++}
+ 
++void
++arrange(void) {
+ 	focus(NULL);
+ 	if(lt[sellt]->arrange)
+ 		lt[sellt]->arrange();
+ 	restack();
++	showhide(stack);
+ }
+ 
+ void
+
