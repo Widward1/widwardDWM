@@ -72,7 +72,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_prp, "-sb", col_grn, "-sf", col_gray1, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *webcmd[] = { "librewolf", NULL};
 static const char *disccmd[]  = { "discord","--ignore-gpu-blocklist","--disable-features=UseOzonePlatform","--enable-features=VaapiVideoDecoder","--use-gl=desktop","--enable-gpu-rasterization","--enable-zero-copy", NULL };
