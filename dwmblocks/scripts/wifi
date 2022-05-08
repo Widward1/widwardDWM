@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if grep -xq 'up' /sys/class/net/w*/operstate 2>/dev/null ; then
+    wificon="on"
+else grep -xq 'down' /sys/class/net/w*/operstate 2>/dev/null
+    wificon="off"
+fi
+
+printf "$wificon "
