@@ -10,4 +10,6 @@ also you will most likely want to install nitrogen and picom: these are most lik
 
 i deleted all of the useless directories
 
-also this repo is meant to be in your home folder. if you change the directory of the folder, then you have to change the path of the scripts in dwmblocks 
+also this repo is meant to be in your home folder. if you change the directory of the folder, then you have to change the path of the scripts in dwmblocks.
+
+also make sure the scrips are able to be executed in the scripts folder for dwm blocks, if they are not run chmod +x on them
