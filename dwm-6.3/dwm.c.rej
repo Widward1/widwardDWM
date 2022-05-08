@@ -1,15 +1,35 @@
 --- dwm.c
 +++ dwm.c
-@@ -730,11 +730,8 @@ drawbar(Monitor *m)
+@@ -1677,32 +1684,6 @@ tagmon(const Arg *arg)
+ 	sendmon(selmon->sel, dirtomon(arg->i));
+ }
  
- 	if ((w = m->ww - sw - x) > bh) {
- 		if (m->sel) {
--			int mid = (m->ww - TEXTW(m->sel->name)) / 2 - x;
--			/* make sure name will not overlap on tags even when it is very long */
--			mid = mid >= lrpad / 2 ? mid : lrpad / 2;
- 			drw_setscheme(drw, scheme[m == selmon ? SchemeSel : SchemeNorm]);
--			drw_text(drw, x, 0, w, bh, mid, m->sel->name, 0);
-+			drw_text(drw, x, 0, w, bh, lrpad / 2, m->sel->name, 0);
- 			if (m->sel->isfloating)
- 				drw_rect(drw, x + boxs, boxs, boxw, boxw, m->sel->isfixed, 0);
- 		} else {
+-void
+-tile(Monitor *m)
+-{
+-	unsigned int i, n, h, mw, my, ty;
+-	Client *c;
+-
+-	for (n = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next), n++);
+-	if (n == 0)
+-		return;
+-
+-	if (n > m->nmaster)
+-		mw = m->nmaster ? m->ww * m->mfact : 0;
+-	else
+-		mw = m->ww;
+-	for (i = my = ty = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next), i++)
+-		if (i < m->nmaster) {
+-			h = (m->wh - my) / (MIN(n, m->nmaster) - i);
+-			resize(c, m->wx, m->wy + my, mw - (2*c->bw), h - (2*c->bw), 0);
+-			my += HEIGHT(c);
+-		} else {
+-			h = (m->wh - ty) / (n - i);
+-			resize(c, m->wx + mw, m->wy + ty, m->ww - mw - (2*c->bw), h - (2*c->bw), 0);
+-			ty += HEIGHT(c);
+-		}
+-}
+-
+ void
+ togglebar(const Arg *arg)
+ {
