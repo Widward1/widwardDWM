@@ -26,4 +26,4 @@ static unsigned int min_lineheight = 8;
 static const char worddelimiters[] = " ";
 
 /* Size of the window border */
-static const unsigned int border_width = 3;
+static const unsigned int border_width = 1;
