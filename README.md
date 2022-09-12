@@ -13,3 +13,5 @@ i deleted all of the useless directories
 also this repo is meant to be in your home folder. if you change the directory of the folder, then you have to change the path of the scripts in dwmblocks.
 
 also make sure the scrips are able to be executed in the scripts folder for dwm blocks, if they are not run chmod +x on them
+
+added compatability with nixos just for the st overlay add prePatch = ''sed -i "s@/usr/local@$out@" config.mk ''; might add a shell.nix file to it later.
